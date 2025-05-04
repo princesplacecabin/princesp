@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince's Place Eco Cabana & Camping Site – Passara, Sri Lanka</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    :root {
+      --primary: #3e4d38;
+      --secondary: #8bb174;
+      --accent: #f8f5ee;
+      --text: #222;
+      --button: #8bb174;
+      --button-hover: #3e4d38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--accent);
+      color: var(--text);
+    }
+    header {
+      position: relative;
+      height: 420px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.6);
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .header-content h1 {
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px #0007;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .header-content h1 svg {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .header-content p {
+      font-size: 1.2rem;
+      margin-bottom: 28px;
+      opacity: 0.97;
+      text-shadow: 0 2px 8px #0006;
+    }
+    .booking-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      background: rgba(255,255,255,0.15);
+      padding: 12px 18px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #0002;
+    }
+    .booking-panel input, .booking-panel button {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      margin: 0;
+    }
+    .booking-panel input[type="date"] {
+      border: 1px solid #8bb174;
+      background: #fff;
+      color: #3e4d38;
+    }
+    .booking-panel button {
+      background: var(--button);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+    .booking-panel button:hover {
+      background: var(--button-hover);
+    }
+    nav.main-nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 0.7em 0;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+      align-items: center;
+    }
+    nav.main-nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+      padding: 6px 10px;
+    }
+    nav.main-nav a:hover, nav.main-nav a.active {
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
+    .container {
+      max-width: 950px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 35px 28px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+    }
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .host, .about, .packages, .sustainability, .food-quality, .corporate-events, .gallery, .contact-info, .social-icons, .reviews {
+      margin-bottom: 36px;
+    }
+    .packages, .sustainability, .food-quality, .corporate-events {
+      background: var(--accent);
+      padding: 22px 20px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+    }
+    .gallery {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .gallery img {
+      width: 250px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(44, 62, 80, 0.09);
+      transition: transform 0.2s;
+    }
+    .gallery img:hover { transform: scale(1.04); }
+    .reviews {
+      background: #f1f8e9;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .reviews blockquote {
+      font-style: italic;
+      margin: 0 0 12px 0;
+      padding-left: 18px;
+      border-left: 3px solid #8bb174;
+    }
+    .contact-info {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin: 12px 0 0 0;
+    }
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      background: #f3f3f3;
+      border-radius: 30px;
+      padding: 8px 18px;
+      font-size: 1.1em;
+      color: #222;
+      transition: background 0.2s, color 0.2s;
+      min-width: 44px;
+      min-height: 44px;
+      outline: none;
+    }
+    .social-icons a:focus, .social-icons a:hover {
+      background: #8bb174;
+      color: #fff;
+    }
+    .social-icons .fa {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+    footer {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 40px;
+      font-size: 1.1em;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 18px 6vw; }
+      h2 { font-size: 1.3rem; }
+      .header-content h1 { font-size: 1.2rem; }
+      header { height: 220px; }
+      .gallery img { width: 90vw; height: 35vw; }
+      nav.main-nav { flex-direction: column; gap: 6px; }
+      .social-icons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <video autoplay loop muted playsinline>
+      <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="header-content">
+      <h1>
+        <!-- A-frame Cabin Icon SVG -->
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" aria-label="A-frame Cabin Icon" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L2 21h20L12 3z" fill="#8bb174"/>
+          <rect x="9" y="14" width="6" height="7" fill="#fff"/>
+          <rect x="11" y="16" width="2" height="5" fill="#8bb174"/>
+          <path d="M12 3v18" stroke="#3e4d38" stroke-width="2"/>
+        </svg>
+        Prince's Place Eco Cabana & Camping Site
+      </h1>
+      <p>Nature, Comfort & Adventure in Passara, Sri Lanka</p>
+      <form class="booking-panel" action="https://wa.me/94777418200" method="get" target="_blank">
+        <input type="date" name="checkin" required aria-label="Check-in date">
+        <input type="date" name="checkout" required aria-label="Check-out date">
+        <button type="submit">Book Now</button>
+      </form>
+    </div>
+    <nav class="main-nav">
+      <a href="#about">About</a>
+      <a href="#cabins">Cabins</a>
+      <a href="#packages">Packages</a>
+      <a href="#sustainability">Sustainability</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="host">
+      <h2>Welcome from Your Host – Pimitha Umeshan!</h2>
+      <p>
+        Hi, I’m <strong>Pimitha Umeshan</strong>, your host at Prince's Place. I love sharing the beauty and calm of Passara with guests from all over the world. 
+        My goal is to make your stay relaxing, memorable, and full of adventure.<br>
+        <strong>For any inquiries, please contact me at <a href="mailto:pimitha99@gmail.com">pimitha99@gmail.com</a>.</strong>
+      </p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Us</h2>
+      <p>
+        <strong>Prince's Place Eco Cabana & Camping Site</strong> is your perfect escape into nature.<br>
+        Enjoy breathtaking 360° views, eco-friendly cabanas, and peaceful camping surrounded by lush greenery.<br>
+        Whether you’re seeking a romantic getaway, family adventure, or corporate retreat, our site offers a unique blend of comfort and nature.<br>
+        <em>පස්සර වෙනම vibe එකක් තියන සුපිරි තැනක්!</em>
+      </p>
+    </section>
+
+    <section id="cabins" class="packages">
+      <h2>
+        <span style="vertical-align:middle;">
+          <!-- A-frame Cabin Icon SVG here -->
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-label="A-frame Cabin Icon" xmlns="http://www.w3.org/2000/svg" style="margin-right:10px;">
+            <path d="M12 3L2 21h20L12 3z" fill="#8bb174"/>
+            <rect x="9" y="14" width="6" height="7" fill="#fff"/>
+            <rect x="11" y="16" width="2" height="5" fill="#8bb174"/>
+            <path d="M12 3v18" stroke="#3e4d38" stroke-width="2"/>
+          </svg>
+        </span>
+        Our A-Frame Cabins
+      </h2>
+      <ul>
+        <li><strong>Design:</strong> Stylish A-frame architecture for a cozy, modern mountain vibe</li>
+        <li><strong>Private Bathrooms:</strong> All cabins have ensuite bathrooms</li>
+        <li><strong>Balcony/Terrace:</strong> Enjoy stunning 360° views from your own outdoor space</li>
+        <li><strong>Comfort:</strong> Queen beds, fresh linens, and blackout curtains</li>
+        <li><strong>Workspace & Wi-Fi:</strong> Dedicated desk and free high-speed internet</li>
+        <li><strong>Family & Group Friendly:</strong> Spacious layouts for couples, families, or friends</li>
+        <li><strong>Eco Features:</strong> Solar power, natural ventilation, and sustainable materials</li>
+        <li><strong>Camping Option:</strong> Prefer the outdoors? We offer camping sites with all amenities</li>
+      </ul>
+      <p>
+        <b>Check-in:</b> After 11:30 a.m. | <b>Check-out:</b> Before 10:00 a.m.<br>
+        <b>Location:</b> 9th mile post, Palagolla, Passara, Sri Lanka
+      </p>
+    </section>
+
+    <section id="packages" class="packages">
+      <h2>Our Packages</h2>
+      <ul>
+        <li><strong>❤️ Couples Special:</strong> 24H cabin (no food) – <b>LKR 9,990</b> (valid till Nov 30)</li>
+        <li><strong>🥂 Half Board:</strong> LKR 14,990/person – Welcome drink, tea, dinner, breakfast</li>
+        <li><strong>🤴 Full Board:</strong> LKR 17,990/2 persons – Includes lunch</li>
+      </ul>
+      <p><b>Check-in:</b> After 11:30 a.m. | <b>Check-out:</b> Before 10:00 a.m.</p>
+    </section>
+
+    <section id="sustainability" class="sustainability">
+      <h2>Our Green Promise</h2>
+      <p>
+        We are committed to sustainable hospitality:<br>
+        <span style="color:#8bb174;">•</span> Solar-powered lighting<br>
+        <span style="color:#8bb174;">•</span> Locally sourced food<br>
+        <span style="color:#8bb174;">•</span> Eco-friendly cleaning and recycling<br>
+        <span style="color:#8bb174;">•</span> Supporting the Passara community
+      </p>
+    </section>
+
+    <section id="food" class="food-quality">
+      <h2>Food & Dining</h2>
+      <p>
+        Enjoy hearty BBQ dinners, traditional Sri Lankan breakfasts, and vegetarian/vegan options-all prepared with fresh, local ingredients.<br>
+        <em>Guests rave about our evening tea with mountain views!</em>
+      </p>
+    </section>
+
+    <section id="corporate" class="corporate-events">
+      <h2>Corporate Events & Retreats</h2>
+      <p>
+        Host your team-building sessions, workshops, or retreats in nature!<br>
+        Spacious outdoor areas, custom meal plans, high-speed WiFi, and tailored packages available.<br>
+        <em>Contact us for group rates and exclusive use.</em>
+      </p>
+    </section>
+
+    <section id="gallery" class="gallery">
+      <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/496174080.jpg" alt="Cabana">
+      <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/496174084.jpg" alt="Terrace">
+      <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/496174088.jpg" alt="Nature">
+    </section>
+
+    <section id="reviews" class="reviews">
+      <h2>What Our Guests Say</h2>
+      <blockquote>
+        “A hidden gem! The views are breathtaking and the hospitality is exceptional. We loved the BBQ dinner and peaceful atmosphere.”<br>
+        <span style="font-size:0.9em;">- TripAdvisor Review</span>
+      </blockquote>
+      <blockquote>
+        “Perfect for a corporate retreat. The team arranged everything, including meals and activities. Highly recommended!”<br>
+        <span style="font-size:0.9em;">- Google Review</span>
+      </blockquote>
+    </section>
+
+    <section id="contact" class="contact-info">
+      <h2>Contact & Booking</h2>
+      <p>
+        <b>Phone:</b> <a href="tel:+94777418200">077 741 8200</a><br>
+        <b>WhatsApp:</b> <a href="https://wa.me/94777418200" target="_blank">+94 77 741 8200</a><br>
+        <b>Email:</b> <a href="mailto:pimitha99@gmail.com">pimitha99@gmail.com</a><br>
+        <b>Location:</b> 9th mile post, Palagolla, Passara, Sri Lanka
+      </p>
+    </section>
+
+    <section class="social-icons" aria-label="Social Media">
+      <a href="https://www.facebook.com/profile.php?id=100090962786831" target="_blank" aria-label="Facebook">
+        <span class="fa fa-facebook"></span> Facebook
+      </a>
+      <a href="https://www.instagram.com/prince_place_cabins/" target="_blank" aria-label="Instagram">
+        <span class="fa fa-instagram"></span> Instagram
+      </a>
+      <a href="https://www.booking.com/hotel/lk/prince-place-eco-cabana-and-camping-site-passara.html" target="_blank" aria-label="Booking.com">
+        <span class="fa fa-bed"></span> Booking.com
+      </a>
+      <a href="https://www.tripadvisor.com/Hotel_Review-g4300794-d32696593-Reviews-Prince_s_Place_Eco_Cabana_Camping_Site_Passara-Passara_Uva_Province.html" target="_blank" aria-label="TripAdvisor">
+        <span class="fa fa-tripadvisor"></span> TripAdvisor
+      </a>
+      <a href="https://wathupiti.lk/listing/princes-place-eco-cabana-camping-site/" target="_blank" aria-label="WathuPiti.lk">
+        <span class="fa fa-globe"></span> WathuPiti.lk
+      </a>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Prince Place Cabins (Pvt) Ltd. | All rights reserved.<br>
+    Designed & managed by Pimitha Umeshan | Contact: <a href="mailto:pimitha99@gmail.com">pimitha99@gmail.com</a>
+  </footer>
+</body>
+</html>
